@@ -282,11 +282,17 @@ namespace CaixaEletronico
             conta.cliente = cliente;
 
             /*Duas formas de alterar o mesmo objeto*/
-            cliente.nome = "Victor"; //outra forma: conta.cliente.nome = ...
-            conta.cliente.rgTitular = "12345678-9"; //outra forma: cliente.rgtitular = ...
+            cliente.Nome = "Victor"; //outra forma: conta.cliente.nome = ...
+            conta.cliente.RgTitular = "12345678-9"; //outra forma: cliente.rgtitular = ...
 
-            MessageBox.Show(conta.cliente.nome);
+            MessageBox.Show(conta.cliente.Nome);
 
+
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = new Cliente("Daniel Sabino");
 
         }
     }
