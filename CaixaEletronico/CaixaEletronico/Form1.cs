@@ -16,7 +16,7 @@ namespace CaixaEletronico
         {
             InitializeComponent();
         }
-
+        /*
         private void button1_Click(object sender, EventArgs e)
         {
             int numeroDaConta;
@@ -118,14 +118,12 @@ namespace CaixaEletronico
         private void button6_Click(object sender, EventArgs e)
         {
             double valorInvestido = 2000.0;
-            /* Estrutura for
+
             for (int i = 1; i <= 12; i++)
             {
                 valorInvestido *= 1.01;
             }
-            */
 
-            /* Estrutura While */
             int i = 1;
             while (i <= 12)
             {
@@ -247,7 +245,6 @@ namespace CaixaEletronico
 
         private void button14_Click(object sender, EventArgs e)
         {
-            /*AULA 06*/
             Conta umaConta = new Conta();
             umaConta.numero = 1;
             umaConta.titular = "Joaquim";
@@ -260,8 +257,6 @@ namespace CaixaEletronico
 
             //MessageBox.Show("O titular da conta " + umaConta.numero + " é " + umaConta.titular);
 
-
-            /*AULA 07*/
             Conta guilherme = new Conta();
             Conta mauricio = new Conta();
 
@@ -274,14 +269,10 @@ namespace CaixaEletronico
             //MessageBox.Show("O saldo da conta mauricio é " + mauricio.saldo);
 
 
-
-            /*AULA 08*/
             Conta conta = new Conta();
             Cliente cliente = new Cliente();
 
             conta.cliente = cliente;
-
-            /*Duas formas de alterar o mesmo objeto*/
             cliente.Nome = "Victor"; //outra forma: conta.cliente.nome = ...
             conta.cliente.RgTitular = "12345678-9"; //outra forma: cliente.rgtitular = ...
 
@@ -294,6 +285,59 @@ namespace CaixaEletronico
         {
             Cliente cliente = new Cliente("Daniel Sabino");
 
+        }
+        */
+        private Conta conta;
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.conta = new Conta();
+            this.conta.Titular = "Victor";
+            this.conta.Numero = 1;
+            this.conta.Deposita(250.0);
+
+            this.MostraConta();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string textoDoValorDoDeposito = textoValor.Text;
+            double valorDeposito;
+
+            if (double.TryParse(textoDoValorDoDeposito, out valorDeposito))
+            {
+                this.conta.Deposita(valorDeposito);
+                this.MostraConta();
+            }
+            else
+            {
+                // Tratar o erro de conversão aqui, como exibir uma mensagem de erro para o usuário
+                MessageBox.Show("Ocorreu um erro de conversao");
+            }
+        }
+
+        private void MostraConta()
+        {
+            textoNumero.Text = Convert.ToString(this.conta.Numero);
+            textoSaldo.Text = Convert.ToString(this.conta.Saldo);
+            textoTitular.Text = this.conta.Titular;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string textoDoValorDoSaque = textoValor.Text;
+            double valorSaque;
+
+            if (double.TryParse(textoDoValorDoSaque, out valorSaque))
+            {
+                this.conta.Saca(valorSaque);
+                this.MostraConta();
+            }
+            else
+            {
+                // Tratar o erro de conversão aqui, como exibir uma mensagem de erro para o usuário
+                MessageBox.Show("Ocorreu um erro de conversao");
+            }
         }
     }
 }
