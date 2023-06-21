@@ -10,13 +10,18 @@ namespace CaixaEletronico
     {
         public int Numero { get; set; }
         public string Titular { get; set; }
-        public double Saldo { get; private set; }
+        public double Saldo { get; protected set; }
         private int agencia;
+        public int Tipo { get; set; }
 
         public Cliente cliente;
 
-        public bool Saca(double valorASerSacado)
+        public virtual void Saca(double valorASerSacado)
         {
+
+            this.Saldo -= valorASerSacado;
+            
+            /*
             if (this.Saldo >= valorASerSacado && valorASerSacado >= 0)
             {
                 if (this.cliente.EhMaiorDeIdade())
@@ -34,9 +39,10 @@ namespace CaixaEletronico
             }
             else
                 return false;
+            */
         }
 
-        public void Deposita(double valor)
+        public virtual void Deposita(double valor)
         {
             this.Saldo += valor;
         }

@@ -301,6 +301,7 @@ namespace CaixaEletronico
 
         private void button1_Click(object sender, EventArgs e)
         {
+            /*
             string textoDoValorDoDeposito = textoValor.Text;
             double valorDeposito;
 
@@ -314,6 +315,19 @@ namespace CaixaEletronico
                 // Tratar o erro de conversão aqui, como exibir uma mensagem de erro para o usuário
                 MessageBox.Show("Ocorreu um erro de conversao");
             }
+            */
+
+            ContaPoupanca cp = new ContaPoupanca();
+            cp.Deposita(1000);
+            cp.Saca(100);
+
+            MessageBox.Show("Saldo Poupanca " + cp.Saldo);
+
+            Conta c = new Conta();
+            c.Deposita(100);
+            c.Saca(50);
+
+            MessageBox.Show("Saldo Corrente " + c.Saldo);
         }
 
         private void MostraConta()
