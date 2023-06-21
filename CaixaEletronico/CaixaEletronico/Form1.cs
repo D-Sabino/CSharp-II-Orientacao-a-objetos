@@ -315,7 +315,7 @@ namespace CaixaEletronico
                 // Tratar o erro de conversão aqui, como exibir uma mensagem de erro para o usuário
                 MessageBox.Show("Ocorreu um erro de conversao");
             }
-            */
+            
 
             ContaPoupanca cp = new ContaPoupanca();
             cp.Deposita(1000);
@@ -328,6 +328,38 @@ namespace CaixaEletronico
             c.Saca(50);
 
             MessageBox.Show("Saldo Corrente " + c.Saldo);
+            
+
+            Conta c1 = new Conta();
+            c1.Deposita(10);
+
+            ContaPoupanca c2 = new ContaPoupanca();
+            c2.Deposita(40);
+
+            TotalizadorDeContas t = new TotalizadorDeContas();
+            t.Adiciona(c1);
+            t.Adiciona(c2);
+
+            MessageBox.Show("O total é: " + t.Total);
+            */
+
+            ContaCorrente c1 = new ContaCorrente();
+            ContaCorrente c2 = new ContaCorrente();
+
+            c1.Deposita(10);
+            c2.Deposita(40);
+
+            TotalizadorDeContas t = new TotalizadorDeContas();
+            t.Adiciona(c1);
+            t.Adiciona(c2);
+
+            MessageBox.Show("O total é: " + t.Total);
+
+            /*
+                O C# sabe que ContaCorrente herda todos os atributos e métodos de Conta, 
+                e portanto tem a certeza que existe o atributo Saldo, 
+                e que ele poderá invocá-lo sem maiores problemas!
+            */
         }
 
         private void MostraConta()
