@@ -341,7 +341,7 @@ namespace CaixaEletronico
             t.Adiciona(c2);
 
             MessageBox.Show("O total é: " + t.Total);
-            */
+           
 
             ContaCorrente c1 = new ContaCorrente();
             ContaCorrente c2 = new ContaCorrente();
@@ -354,12 +354,26 @@ namespace CaixaEletronico
             t.Adiciona(c2);
 
             MessageBox.Show("O total é: " + t.Total);
-
+             */
             /*
                 O C# sabe que ContaCorrente herda todos os atributos e métodos de Conta, 
                 e portanto tem a certeza que existe o atributo Saldo, 
                 e que ele poderá invocá-lo sem maiores problemas!
             */
+
+            Conta[] contas = new Conta[2];
+            contas[0] = new Conta();
+            contas[1] = new ContaPoupanca();
+
+            contas[0].Deposita(10);
+            contas[1].Deposita(100);
+
+            foreach(Conta conta in contas)
+            {
+                MessageBox.Show("O saldo da conta é: " + conta.Saldo);
+            }
+
+
         }
 
         private void MostraConta()
