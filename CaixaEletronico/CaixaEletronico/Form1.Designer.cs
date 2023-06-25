@@ -34,6 +34,9 @@
             this.textoValor = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.comboContas = new System.Windows.Forms.ComboBox();
+            this.buttonDeposito = new System.Windows.Forms.Button();
+            this.buttonSaque = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textoTitular
@@ -61,12 +64,12 @@
             // 
             this.textoValor.Location = new System.Drawing.Point(352, 12);
             this.textoValor.Name = "textoValor";
-            this.textoValor.Size = new System.Drawing.Size(111, 22);
+            this.textoValor.Size = new System.Drawing.Size(228, 22);
             this.textoValor.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(352, 40);
+            this.button1.Location = new System.Drawing.Point(56, 40);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 32);
             this.button1.TabIndex = 4;
@@ -76,7 +79,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(469, 40);
+            this.button2.Location = new System.Drawing.Point(173, 40);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(111, 32);
             this.button2.TabIndex = 5;
@@ -84,11 +87,43 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // comboContas
+            // 
+            this.comboContas.FormattingEnabled = true;
+            this.comboContas.Location = new System.Drawing.Point(56, 133);
+            this.comboContas.Name = "comboContas";
+            this.comboContas.Size = new System.Drawing.Size(265, 24);
+            this.comboContas.TabIndex = 6;
+            this.comboContas.SelectedIndexChanged += new System.EventHandler(this.comboContas_SelectedIndexChanged);
+            // 
+            // buttonDeposito
+            // 
+            this.buttonDeposito.Location = new System.Drawing.Point(352, 40);
+            this.buttonDeposito.Name = "buttonDeposito";
+            this.buttonDeposito.Size = new System.Drawing.Size(111, 32);
+            this.buttonDeposito.TabIndex = 7;
+            this.buttonDeposito.Text = "Deposito";
+            this.buttonDeposito.UseVisualStyleBackColor = true;
+            this.buttonDeposito.Click += new System.EventHandler(this.buttonDeposito_Click);
+            // 
+            // buttonSaque
+            // 
+            this.buttonSaque.Location = new System.Drawing.Point(469, 40);
+            this.buttonSaque.Name = "buttonSaque";
+            this.buttonSaque.Size = new System.Drawing.Size(111, 32);
+            this.buttonSaque.TabIndex = 8;
+            this.buttonSaque.Text = "Saque";
+            this.buttonSaque.UseVisualStyleBackColor = true;
+            this.buttonSaque.Click += new System.EventHandler(this.buttonSaque_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1235, 450);
+            this.Controls.Add(this.buttonSaque);
+            this.Controls.Add(this.buttonDeposito);
+            this.Controls.Add(this.comboContas);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textoValor);
@@ -111,6 +146,9 @@
         private System.Windows.Forms.TextBox textoValor;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboContas;
+        private System.Windows.Forms.Button buttonDeposito;
+        private System.Windows.Forms.Button buttonSaque;
     }
 }
 

@@ -12,6 +12,7 @@ namespace CaixaEletronico
 {
     public partial class Form1 : Form
     {
+        Conta[] contas;
         public Form1()
         {
             InitializeComponent();
@@ -286,17 +287,34 @@ namespace CaixaEletronico
             Cliente cliente = new Cliente("Daniel Sabino");
 
         }
-        */
+        
         private Conta conta;
-
+        */
         private void Form1_Load(object sender, EventArgs e)
         {
+            /*
             this.conta = new Conta();
             this.conta.Titular = "Victor";
             this.conta.Numero = 1;
             this.conta.Deposita(250.0);
 
             this.MostraConta();
+            */
+
+            contas = new Conta[2];
+            contas[0] = new Conta();
+            contas[0].Numero = 1;
+            contas[0].Titular = "Daniel";
+
+            contas[1] = new Conta();
+            contas[1].Numero = 2;
+            contas[1].Titular = "Bianca";
+
+            foreach(Conta conta in contas)
+            {
+                comboContas.Items.Add(conta.Titular);
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -359,7 +377,7 @@ namespace CaixaEletronico
                 O C# sabe que ContaCorrente herda todos os atributos e métodos de Conta, 
                 e portanto tem a certeza que existe o atributo Saldo, 
                 e que ele poderá invocá-lo sem maiores problemas!
-            */
+            
 
             Conta[] contas = new Conta[2];
             contas[0] = new Conta();
@@ -372,19 +390,22 @@ namespace CaixaEletronico
             {
                 MessageBox.Show("O saldo da conta é: " + conta.Saldo);
             }
-
+            */
 
         }
 
         private void MostraConta()
         {
+            /*
             textoNumero.Text = Convert.ToString(this.conta.Numero);
             textoSaldo.Text = Convert.ToString(this.conta.Saldo);
             textoTitular.Text = this.conta.Titular;
+            */
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            /*
             string textoDoValorDoSaque = textoValor.Text;
             double valorSaque;
 
@@ -397,6 +418,39 @@ namespace CaixaEletronico
             {
                 // Tratar o erro de conversão aqui, como exibir uma mensagem de erro para o usuário
                 MessageBox.Show("Ocorreu um erro de conversao");
+            }
+            */
+        }
+
+        private void comboContas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int indiceSelecionado = comboContas.SelectedIndex;
+            Conta contaSelecionada = contas[indiceSelecionado];
+
+            textoTitular.Text = contaSelecionada.Titular;
+            textoNumero.Text = Convert.ToString(contaSelecionada.Numero);
+            textoSaldo.Text = Convert.ToString(contaSelecionada.Saldo);
+        }
+
+        private void buttonDeposito_Click(object sender, EventArgs e)
+        {
+            int indiceSelecionado = comboContas.SelectedIndex;
+            Conta contaSelecionada = contas[indiceSelecionado];
+
+            if (indiceSelecionado != null)
+            {
+                contaSelecionada.Deposita(Convert.ToDouble(textoValor.Text));
+            }
+        }
+
+        private void buttonSaque_Click(object sender, EventArgs e)
+        {
+            int indiceSelecionado = comboContas.SelectedIndex;
+            Conta contaSelecionada = contas[indiceSelecionado];
+
+            if (indiceSelecionado != null)
+            {
+                contaSelecionada.Saca(Convert.ToDouble(textoValor.Text));
             }
         }
     }
