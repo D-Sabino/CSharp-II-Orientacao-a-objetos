@@ -26,5 +26,14 @@ namespace CaixaEletronico
             else
                 return false;
         }
+
+        public bool PodeAbrirConta()
+        {
+            var maiorDeIdade = (this.idade >= 18);
+            //var emancipado = (this.EEmancipado);
+            var temCpf = !string.IsNullOrEmpty(this.cpf);
+
+            return (maiorDeIdade) && temCpf;
+        }
     }
 }

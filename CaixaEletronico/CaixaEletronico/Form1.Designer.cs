@@ -37,6 +37,8 @@
             this.comboContas = new System.Windows.Forms.ComboBox();
             this.buttonDeposito = new System.Windows.Forms.Button();
             this.buttonSaque = new System.Windows.Forms.Button();
+            this.destinoDaTransferencia = new System.Windows.Forms.ComboBox();
+            this.buttonTransferir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textoTitular
@@ -90,7 +92,7 @@
             // comboContas
             // 
             this.comboContas.FormattingEnabled = true;
-            this.comboContas.Location = new System.Drawing.Point(56, 133);
+            this.comboContas.Location = new System.Drawing.Point(12, 102);
             this.comboContas.Name = "comboContas";
             this.comboContas.Size = new System.Drawing.Size(265, 24);
             this.comboContas.TabIndex = 6;
@@ -116,11 +118,31 @@
             this.buttonSaque.UseVisualStyleBackColor = true;
             this.buttonSaque.Click += new System.EventHandler(this.buttonSaque_Click);
             // 
+            // destinoDaTransferencia
+            // 
+            this.destinoDaTransferencia.FormattingEnabled = true;
+            this.destinoDaTransferencia.Location = new System.Drawing.Point(283, 102);
+            this.destinoDaTransferencia.Name = "destinoDaTransferencia";
+            this.destinoDaTransferencia.Size = new System.Drawing.Size(265, 24);
+            this.destinoDaTransferencia.TabIndex = 9;
+            // 
+            // buttonTransferir
+            // 
+            this.buttonTransferir.Location = new System.Drawing.Point(225, 132);
+            this.buttonTransferir.Name = "buttonTransferir";
+            this.buttonTransferir.Size = new System.Drawing.Size(111, 31);
+            this.buttonTransferir.TabIndex = 10;
+            this.buttonTransferir.Text = "Transferir";
+            this.buttonTransferir.UseVisualStyleBackColor = true;
+            this.buttonTransferir.Click += new System.EventHandler(this.buttonTransferir_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1235, 450);
+            this.Controls.Add(this.buttonTransferir);
+            this.Controls.Add(this.destinoDaTransferencia);
             this.Controls.Add(this.buttonSaque);
             this.Controls.Add(this.buttonDeposito);
             this.Controls.Add(this.comboContas);
@@ -149,6 +171,8 @@
         private System.Windows.Forms.ComboBox comboContas;
         private System.Windows.Forms.Button buttonDeposito;
         private System.Windows.Forms.Button buttonSaque;
+        private System.Windows.Forms.ComboBox destinoDaTransferencia;
+        private System.Windows.Forms.Button buttonTransferir;
     }
 }
 

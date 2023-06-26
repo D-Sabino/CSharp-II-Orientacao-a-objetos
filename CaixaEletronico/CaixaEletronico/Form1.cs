@@ -299,7 +299,7 @@ namespace CaixaEletronico
             this.conta.Deposita(250.0);
 
             this.MostraConta();
-            */
+            
 
             contas = new Conta[2];
             contas[0] = new Conta();
@@ -313,8 +313,9 @@ namespace CaixaEletronico
             foreach(Conta conta in contas)
             {
                 comboContas.Items.Add(conta.Titular);
+                destinoDaTransferencia.Items.Add(conta.Titular);
             }
-            
+            */
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -392,6 +393,14 @@ namespace CaixaEletronico
             }
             */
 
+            ContaCorrente contaCorrente = new ContaCorrente();
+            ContaPoupanca contaPoupanca = new ContaPoupanca();
+
+            contaCorrente.Deposita(100);
+            contaPoupanca.Deposita(100);
+
+            contaCorrente.Saca(10);
+            MessageBox.Show("O saldo da conta é: " + contaCorrente.Saldo);
         }
 
         private void MostraConta()
@@ -452,6 +461,21 @@ namespace CaixaEletronico
             {
                 contaSelecionada.Saca(Convert.ToDouble(textoValor.Text));
             }
+        }
+
+        private void buttonTransferir_Click(object sender, EventArgs e)
+        {
+            int indiceComboContasSelecionado = comboContas.SelectedIndex;
+            int indiceDestinoDaTransferenciaSelecionado = destinoDaTransferencia.SelectedIndex;
+
+            Conta contaOrigem = contas[indiceComboContasSelecionado];
+            Conta contaDestino = contas[indiceDestinoDaTransferenciaSelecionado];
+
+            if (indiceComboContasSelecionado != null && indiceDestinoDaTransferenciaSelecionado != null)
+            {
+                contaOrigem.Transfere(Convert.ToDouble(textoValor.Text), contaDestino);
+            }
+
         }
     }
 }

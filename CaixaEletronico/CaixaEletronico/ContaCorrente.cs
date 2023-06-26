@@ -8,6 +8,9 @@ namespace CaixaEletronico
 {
     class ContaCorrente : Conta
     {
-
+        public override void Saca (double valor)
+        {
+            this.Saldo -= valor;
+        }
     }
 }
