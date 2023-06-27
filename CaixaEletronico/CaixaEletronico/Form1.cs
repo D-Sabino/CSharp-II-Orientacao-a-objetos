@@ -401,11 +401,14 @@ namespace CaixaEletronico
 
             contaCorrente.Saca(10);
             MessageBox.Show("O saldo da conta é: " + contaCorrente.Saldo);
-            */
+            
 
             ContaPoupanca cp = new ContaPoupanca();
             ContaInvestimento ci = new ContaInvestimento();
             TotalizadorDeTributos t = new TotalizadorDeTributos();
+            GerenciadorDeImposto g = new GerenciadorDeImposto();
+            ContaCorrente contaCorrente = new ContaCorrente();
+
 
             cp.Deposita(10);
             ci.Deposita(100);
@@ -414,6 +417,14 @@ namespace CaixaEletronico
             t.Acumula(ci);
 
             MessageBox.Show("Tributos: " + t.Total);
+
+            g.Adiciona(contaCorrente);
+            */
+
+            ContaCorrente c = new ContaCorrente();
+            ContaCorrente c2 = new ContaCorrente();
+            MessageBox.Show("Total de contas correntes: " + ContaCorrente.TotalDeContas);
+            MessageBox.Show("Proximo numero: " + ContaCorrente.ProximoNumero());
 
         }
 
