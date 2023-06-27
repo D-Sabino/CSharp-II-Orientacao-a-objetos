@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CaixaEletronico
 {
-    class ContaPoupanca : Conta
+    class ContaPoupanca : Conta, Tributavel
     {
         public override void Saca(double valor)
         {
@@ -21,6 +21,11 @@ namespace CaixaEletronico
         public void CalculaInvestimento()
         {
 
+        }
+
+        public double CalculaTributo()
+        {
+            return this.Saldo * 0.02;
         }
     }
 }

@@ -391,7 +391,7 @@ namespace CaixaEletronico
             {
                 MessageBox.Show("O saldo da conta é: " + conta.Saldo);
             }
-            */
+            
 
             ContaCorrente contaCorrente = new ContaCorrente();
             ContaPoupanca contaPoupanca = new ContaPoupanca();
@@ -401,6 +401,20 @@ namespace CaixaEletronico
 
             contaCorrente.Saca(10);
             MessageBox.Show("O saldo da conta é: " + contaCorrente.Saldo);
+            */
+
+            ContaPoupanca cp = new ContaPoupanca();
+            ContaInvestimento ci = new ContaInvestimento();
+            TotalizadorDeTributos t = new TotalizadorDeTributos();
+
+            cp.Deposita(10);
+            ci.Deposita(100);
+
+            t.Acumula(cp);
+            t.Acumula(ci);
+
+            MessageBox.Show("Tributos: " + t.Total);
+
         }
 
         private void MostraConta()
